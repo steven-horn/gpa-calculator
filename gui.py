@@ -1,4 +1,5 @@
 from tkinter import *
+from functions import *
 
 
 class Gui:
@@ -19,7 +20,7 @@ class Gui:
         self.class_one_label = Label(self.frame_one_class, width=10, text='Calculus')
         self.grade_one_label = Label(self.frame_one_class, width=5, text='Grade: ')
         self.add_one_entry = Entry(self.frame_one_class)
-        self.class_one_button = Button(self.frame_one_class, width=10, text='Add grade')
+        self.class_one_button = Button(self.frame_one_class, width=10, text='Add grade', command=self.class_one_grades)
         self.class_one_label.pack(side='left')
         self.grade_one_label.pack(side='left', padx=50)
         self.class_one_button.pack(side='right')
@@ -132,6 +133,11 @@ class Gui:
         self.button_add_class.pack(side='right', padx=10)
         self.frame_add_button.pack()
 
+        self.frame_error = Frame(self.window)
+        self.error_label = Label(self.frame_error, text='Please input a number between 0 - 120', fg='red', relief='raised', font=('arial', 12))
+        self.error_label.pack()
+        self.frame_error.pack_forget()
+
     def clicked(self):
         """Function to set the screen"""
         if self.__number_of_classes == 1:
@@ -182,3 +188,13 @@ class Gui:
         self.frame_add_button.destroy()
         self.frame_five_class.pack()
         self.frame_five_scores.pack()
+
+    def class_one_grades(self):
+        """Function to get grades from user input. Store them into a list and calculate the average"""
+        grades_list = []
+        grade = self.add_one_entry.get()
+        x = valid_score(grade)
+        if x is False:
+            self.frame_error.pack()
+        else:
+            grades_list.append(grade)
