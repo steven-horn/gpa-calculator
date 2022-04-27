@@ -1,7 +1,7 @@
 def valid_score(grade):
     """Function to check that the input is acceptable. If not, it will display an error message."""
     try:
-        float(grade)
+        grade = float(grade)
         if grade < 0 or grade > 120:
             return False
         else:
