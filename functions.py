@@ -9,21 +9,27 @@ def valid_score(grade):
     except ValueError:
         return False
 
+
 def average(grades):
+    """function to find the average of the class' grades"""
     total = 0
-    for i in range(grades):
-        total += grades[i]
-    final_grade = total/range(grades)
+    number_of_grades = 0
+    for i in grades:
+        total += i
+        number_of_grades += 1
+    final_grade = total/number_of_grades
     return final_grade
 
+
 def letter_grade(grade):
+    """function to find the final grade of a class"""
     if grade >= 90:
-        print('Grade: A')
+        return 'A'
     elif grade >= 80:
-        print('Grade: B')
+        return 'B'
     elif grade >= 70:
-        print('Grade: C')
+        return 'C'
     elif grade >= 60:
-        print('Grade: D')
+        return 'D'
     else:
-        print('Grade: F')
+        return 'F'
