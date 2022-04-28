@@ -1,35 +1,38 @@
-def valid_score(grade):
-    """Function to check that the input is acceptable. If not, it will display an error message."""
+def letter_grade(grade):
+    """function to find the final grade of a class"""
     try:
-        grade = float(grade)
-        if grade < 0 or grade > 120:
-            return False
+        percent = float(grade)
+        if percent <= 100 and percent >= 0:
+            if percent >= 90:
+                return 'A'
+            elif percent >= 80:
+                return 'B'
+            elif percent >= 70:
+                return 'C'
+            elif percent >= 60:
+                return 'D'
+            else:
+                return 'F'
         else:
-            return grade
+            return False
     except ValueError:
         return False
 
-
-def average(grades):
-    """function to find the average of the class' grades"""
-    total = 0
-    number_of_grades = 0
-    for i in grades:
-        total += i
-        number_of_grades += 1
-    final_grade = total/number_of_grades
-    return final_grade
-
-
-def letter_grade(grade):
-    """function to find the final grade of a class"""
-    if grade >= 90:
-        return 'A'
-    elif grade >= 80:
-        return 'B'
-    elif grade >= 70:
-        return 'C'
-    elif grade >= 60:
-        return 'D'
+def conversion(letter):
+    if letter == 'A':
+        return 4
+    elif letter == 'B':
+        return 3
+    elif letter == 'C':
+        return 2
+    elif letter == 'D':
+        return 1
     else:
-        return 'F'
+        return 0
+
+def average(*args):
+    total = 0
+    for i in args:
+        total += i
+    average = total / len(args)
+    return average
