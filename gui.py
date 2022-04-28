@@ -4,7 +4,10 @@ from functions import *
 
 class Gui:
     def __init__(self, window):
-        """Initial screen and all widgets. Most of the widgets are initially hidden from the user with pack_forget()"""
+        """Initial screen, all widgets, and variables for use within the GUI. Each portion is split by frame in the
+        init except for the first two which is the variables and the window properties. Each frame is invisible until
+        it has been called by its corresponding function except for the top frame which is always visible and
+        the bottom frame which is visible at the beginning."""
         self.__class_one_grade = 0
         self.__class_two_grade = 0
         self.__class_three_grade = 0
@@ -121,7 +124,7 @@ class Gui:
         self.frame_error.pack_forget()
 
     def add_class(self):
-        """Function to set the screen"""
+        """Function to determine the frame that is made visible after smashing the add class button."""
         if self.__number_of_classes == 1:
             self.one_class()
             self.__number_of_classes += 1
@@ -138,11 +141,16 @@ class Gui:
             self.five_classes()
 
     def one_class(self):
-        """Screen when we have created only one grade book"""
+        """Display the class one text boxes and hides the bottom frame."""
         self.frame_bottom.pack_forget()
         self.frame_two.pack()
 
     def finish_one(self):
+        """This function sets the variable self.__class_XXXX_grade with its equivalent letter grade and saves it for
+        later use. It portrays the error message if the user has inputted a value that is not acceptable by the program.
+        Once the program has accepted the variable, it configures the screen to show the bottom frame again and makes
+        class one values unchangeable. It also destroys any GUI components that will not be used for the rest of this
+        instance."""
         x = self.class_one_entry.get()
         y = self.percent_one_entry.get()
         self.__class_one_grade = letter_grade(y)
@@ -162,11 +170,16 @@ class Gui:
             self.frame_bottom.pack()
 
     def two_classes(self):
-        """Screen when we have created two grade books"""
+        """Shows class two text boxes and hides bottom frame."""
         self.frame_bottom.pack_forget()
         self.frame_three.pack()
 
     def finish_two(self):
+        """This function sets the variable self.__class_XXXX_grade with its equivalent letter grade and saves it for
+        later use. It portrays the error message if the user has inputted a value that is not acceptable by the program.
+        Once the program has accepted the variable, it configures the screen to show the bottom frame again and makes
+        class one values unchangeable. It also destroys any GUI components that will not be used for the rest of this
+        instance."""
         x = self.class_two_entry.get()
         y = self.percent_two_entry.get()
         self.__class_two_grade = letter_grade(y)
@@ -186,11 +199,16 @@ class Gui:
             self.frame_bottom.pack()
 
     def three_classes(self):
-        """Screen when we have created three grade books"""
+        """Shows the class three text boxes and hides the bottom frame"""
         self.frame_bottom.pack_forget()
         self.frame_four.pack()
 
     def finish_three(self):
+        """This function sets the variable self.__class_XXXX_grade with its equivalent letter grade and saves it for
+        later use. It portrays the error message if the user has inputted a value that is not acceptable by the program.
+        Once the program has accepted the variable, it configures the screen to show the bottom frame again and makes
+        class one values unchangeable. It also destroys any GUI components that will not be used for the rest of this
+        instance."""
         x = self.class_three_entry.get()
         y = self.percent_three_entry.get()
         self.__class_three_grade = letter_grade(y)
@@ -210,11 +228,16 @@ class Gui:
             self.frame_bottom.pack()
 
     def four_classes(self):
-        """Screen when we have created four grade books"""
+        """Shows class four text boxes and hides the bottom frame"""
         self.frame_bottom.pack_forget()
         self.frame_five.pack()
 
     def finish_four(self):
+        """This function sets the variable self.__class_XXXX_grade with its equivalent letter grade and saves it for
+        later use. It portrays the error message if the user has inputted a value that is not acceptable by the program.
+        Once the program has accepted the variable, it configures the screen to show the bottom frame again and makes
+        class one values unchangeable. It also destroys any GUI components that will not be used for the rest of this
+        instance."""
         x = self.class_four_entry.get()
         y = self.percent_four_entry.get()
         self.__class_four_grade = letter_grade(y)
@@ -234,11 +257,16 @@ class Gui:
             self.frame_bottom.pack()
 
     def five_classes(self):
-        """Screen when we have created four grade books"""
+        """Shows the class five text boxes and hides the bottom frame"""
         self.frame_bottom.pack_forget()
         self.frame_six.pack()
 
     def finish_five(self):
+        """This function sets the variable self.__class_XXXX_grade with its equivalent letter grade and saves it for
+        later use. It portrays the error message if the user has inputted a value that is not acceptable by the program.
+        Once the program has accepted the variable, it configures the screen to show the bottom frame again and makes
+        class one values unchangeable. It also destroys any GUI components that will not be used for the rest of this
+        instance. Furthermore, it destroys the add class button."""
         x = self.class_five_entry.get()
         y = self.percent_five_entry.get()
         self.__class_five_grade = letter_grade(y)
