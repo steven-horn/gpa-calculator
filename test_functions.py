@@ -11,7 +11,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(letter_grade(35), 'F')
         self.assertEqual(letter_grade(-8), False)
         self.assertEqual(letter_grade(892), False)
-        self.assertEqual(letter_grade('Jololala'), False)
+        self.assertEqual(letter_grade('Jo'), False)
 
     def test_conversion(self):
         self.assertEqual(conversion('A'), 4)

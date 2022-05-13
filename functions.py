@@ -18,6 +18,7 @@ def letter_grade(grade):
     except ValueError:
         return False
 
+
 def conversion(letter):
     if letter == 'A':
         return 4
@@ -29,6 +30,7 @@ def conversion(letter):
         return 1
     else:
         return 0
+
 
 def average(*args):
     total = 0
